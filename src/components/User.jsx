@@ -68,29 +68,17 @@ getUserRepo(e, data){
           <p>{this.props.user.bio}</p>
           <p>De: {this.props.user.location}</p>
           <p><a className="btn btn-secondary" href={this.props.user.html_url} role="button">Github Repo</a></p>
-    <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-    <li className="nav-item"
-    onClick={(event) => this.getUserFollowers(event, this.props.user.followers_url)}
-    >
-      <p>Siguen</p>
-      <b>{this.props.user.followers}</b>
-
-    </li>
-    <li className="nav-item"
-    onClick={(event) => this.getUserFollowing(event, `https://api.github.com/users/${this.props.user.login}/following`  )}
-    >
-      <p>Seguido por</p>
-      <b>{this.props.user.following}</b>
-
-    </li>
-    <li className="nav-item"
-    onClick={(event) => this.getUserRepo(event, this.props.user.repos_url  )}
-    >
-      <p>Repositorios</p>
-      <b>{this.props.user.public_repos}</b>
-
-    </li>
-  </ul>
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+      <li className="nav-item">
+        <a class="nav-link active" id="siguea" data-toggle="tab" href="#" onClick={(event) => this.getUserFollowers(event, this.props.user.followers_url)} role="tab" aria-controls="siguea" aria-selected="true">Siguen {this.props.user.followers}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="seguidopor" data-toggle="tab" href="#" onClick={(event) => this.getUserFollowing(event, `https://api.github.com/users/${this.props.user.login}/following`  )} role="tab" aria-controls="seguidopor" aria-selected="false">Seguido por {this.props.user.following} </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="repositorio" data-toggle="tab" href="#" onClick={(event) => this.getUserRepo(event, this.props.user.repos_url  )} role="tab" aria-controls="repositorio" aria-selected="false">Repositorios {this.props.user.public_repos} </a>
+      </li>
+    </ul>
 {user_data}
           </div>
 
