@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import moment from 'moment/min/moment-with-locales';
+import 'moment/locale/es'
+import Moment from 'react-moment'
+
+Moment.globalLocale = 'es';
 
 class UserDataRepo extends React.Component {
   constructor(props){
@@ -49,7 +54,9 @@ fetchData(url){
               <div className="media-body">
                 <h4 className="media-heading">{data.description}</h4>
                 <a href={data.html_url}>{data.html_url}</a>
+                <p className="age"><Moment fromNow>{data.created_at}</Moment></p>
               </div>
+
             </div>
         </div>
 
